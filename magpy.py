@@ -1,16 +1,17 @@
-from settings import app, db
+from flask import Flask
+
+from database import db_session, init_db
 from models import Project
 
 
-with app.app_context():
-    db.init_app(app)
-    db.create_all()
+app = Flask(__name__)
+init_db()
 
 @app.route("/api/projects", methods=["POST"])
 def add_project():
     project = Project(id="1", name="teste")
-    db.session.add(project)
-    db.session.commit()
+    db_session.add(project)
+    db_session.commit()
     return {'foo': 'bar'}
 
 @app.route("/api/projects/<string:project_name>", methods=["GET"])
@@ -22,6 +23,10 @@ def show_project_detail(project_name):
 @app.route("/api/projects/<string:project_name>", methods=["DELETE"])
 def delete_project(project_name):
     result = Project.query.filter_by(name='teste').first()
-    db.session.delete(result)
-    db.session.commit()
+    db_session.delete(result)
+    db_session.commit()
     return {'foo': 'bar'}
+
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db_session.remove()
