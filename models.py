@@ -26,7 +26,7 @@ class PackageRelease(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
     version = Column(String)
-    test = Column(String)
+    # test = Column(String)
 
     project_id = Column(Integer, ForeignKey('project.id'))
 
