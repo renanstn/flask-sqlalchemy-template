@@ -1,1 +1,1 @@
-web: export FLASK_APP=magpy && gunicorn magpy:app
+web: gunicorn magpy:app
