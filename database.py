@@ -10,7 +10,7 @@ if os.environ.get("FLASK_ENV") == "development":
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
     # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 else:
-    database_url = os.environ.get('DATABASE_URL')
+    database_url = os.environ.get('DATABASE_URL').replace('postgres', 'postgresql')
     # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
 
