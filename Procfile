@@ -1,1 +1,1 @@
-web: gunicorn magpy:app
+web: sh run.sh

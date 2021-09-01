@@ -1,3 +1,4 @@
 export FLASK_ENV=development
 export FLASK_APP=magpy
-flask run
+# flask run
+gunicorn magpy:app
