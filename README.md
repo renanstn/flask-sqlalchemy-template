@@ -2,7 +2,7 @@
 
 Template de uma aplicação Flask, utilizando SQLAlchemy como ORM, e Alembic como ferramenta de migrations.
 
-## Comandos
+## Comandos alembic
 
 ### Criar migrations
 
@@ -10,7 +10,7 @@ Template de uma aplicação Flask, utilizando SQLAlchemy como ORM, e Alembic com
 alembic revision --autogenerate -m "<fixture name>"
 ```
 
-### aplicar migrations
+### Aplicar migrations
 
 ```
 alembic upgrade head
